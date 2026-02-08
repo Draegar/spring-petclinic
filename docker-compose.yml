@@ -2,7 +2,7 @@ services:
   app:
     image: draegar/spring-petclinic:latest
     ports:
-      - "8082:8082"
+      - "8082:8080" # Redirige le 8080 du conteneur vers le 8082 de la VM
     environment:
       - SPRING_PROFILES_ACTIVE=mysql # Ou postgres selon votre choix
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/petclinic
