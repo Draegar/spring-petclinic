@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 5s # Fréquence de récupération des données
+
+scrape_configs:
+  - job_name: 'spring-petclinic'
+    metrics_path: '/actuator/prometheus' # Chemin standard pour Spring Boot
+    static_configs:
+      - targets: ['app:8080'] # 'app' est le nom du service dans ton docker-compose
