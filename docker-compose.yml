@@ -26,7 +26,10 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - GF_SECURITY_ADMIN_PASSWORD=admin # Mot de passe par défaut
+      - GF_SECURITY_ADMIN_PASSWORD=grafana # Fixe le mot de passe admin
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - grafana-storage:/var/lib/grafana
     networks:
       - petclinic-network
     depends_on:
@@ -58,3 +61,5 @@ services:
 networks:
   petclinic-network:
     driver: bridge
+volumes:
+  grafana-storage:
